@@ -1,0 +1,43 @@
+
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12">
+               <ul class="breadcrumb">
+                   <li><a href="index.html">Home</a></li>
+                   <li><a href="index.html#/portfolios">Portfolios</a></li>
+                   <li class="active">Portfolio Details</li>
+               </ul>
+            </div>
+            <div class="col-xs-12">
+               <h3>Portfolio Details</h3>
+               <hr>
+            </div>
+        </div>
+        <div class="row row-content">
+            <div class="col-xs-12">
+                <h2><span class="panel panel-default">{{portfolio.name}}</span></h2>
+                <br><br>
+                <button class="btn btn-xs btn-primary pull-right"
+                    type="button" ui-sref="app.portfolios">
+                    Back to Portfolios
+                </button> 
+                <ul class="media-list tab-pane fade in active">
+                        <li class="media" ng-repeat="item in portfolio.items">
+                            <div class="media-body">
+                                <h4 class="media-heading">{{item.name}} - {{item.ticker}} <span class="label label-danger label-xs">{{item.lastPrice}}</span></h4>
+                            </div>
+                        </li>
+                </ul>
+            <div class="">
+                <form ng-submit="addItem()">
+                    <div class="form-group">
+                        <select name="securitySelect" id="securitySelect" ng-model="securitySelect" ng-options="sec.name for sec in securities">
+                        </select>
+                    </div>
+                    <button type="submit" class="btn btn-info btn-sm">Add Security</button>
+                </form>
+            </div>
+            </div>
+        </div>
+
+    </div>
